@@ -1,0 +1,12 @@
+---
+- name: Create AristaSwitch VLANs
+  hosts: arista
+  tasks:
+    - name: Configure MAGGIE Vlan
+      eos_vlan: name=MAGGIE vlanid=257 username={{ eapi_username }} password={{ eapi_password }} host={{ eapi_hostname }} port={{ eapi_port }} transport=https
+
+    - name: Configure JOHNNY Vlan
+      eos_vlan: name=JOHNNY vlanid=258 username={{eapi_username}} password={{eapi_password}} host={{eapi_hostname}} port={{eapi_port}} transport=https
+
+    - name: Configure REGGIE Vlan
+      eos_vlan: name=REGGIE vlanid=259 username={{eapi_username}} password={{eapi_password}} host={{eapi_hostname}} port={{eapi_port}} transport=https

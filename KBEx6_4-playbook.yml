@@ -1,0 +1,34 @@
+---
+- name: Backout Configuration AristaSwitch Interfaces
+  hosts: arista
+  tasks:
+    - name: Configure Interfaces
+      eos_interface: name=Ethernet5
+                description=<none>
+                username={{eapi_username}}
+                password={{eapi_password}}
+                host={{eapi_hostname}}
+                port={{eapi_port}}
+                transport=https
+    - name: Configure Switchport
+      eos_switchport: name=Ethernet5
+                mode=access
+                access_vlan=1
+                trunk_allowed_vlans=all
+                username={{eapi_username}}
+                password={{eapi_password}}
+                host={{eapi_hostname}}
+                port={{eapi_port}}
+                transport=https
+    - name: Remove Vlans
+      eos_vlan: vlanid={{item}}
+                state=absent
+                username={{eapi_username}}
+                password={{eapi_password}}
+                host={{eapi_hostname}}
+                port={{eapi_port}}
+                transport=https
+      with_items:
+        - 257
+        - 258
+        - 259

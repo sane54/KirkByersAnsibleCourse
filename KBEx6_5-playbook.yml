@@ -1,0 +1,12 @@
+---
+- hosts: pynet-rtr1
+  tasks:
+    - name: Cisco File Transfer Test
+      cisco_file_transfer: 
+            host=184.105.247.70
+            username=pyclass
+            password=88newclass
+            source_file=my-test
+            dest_file=my-test
+            enable_scp=true
+            overwrite=true
