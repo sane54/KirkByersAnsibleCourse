@@ -1,0 +1,9 @@
+---
+- hosts: [local]
+  vars: 
+    - access_vlan: 300
+    - secret: 55hu
+    - snmp_community: 55hu  
+    - destination_dir: /home/jwitzgall/KirkByersAnsibleCourse/config_file_dest
+  roles:
+    - router

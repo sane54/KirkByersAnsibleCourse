@@ -1,0 +1,4 @@
+---
+- name: Generate Configuration File
+  template: src=router2.j2 dest={{destination_dir}}/{{item.hostname}}.txt
+  with_items: test_routers

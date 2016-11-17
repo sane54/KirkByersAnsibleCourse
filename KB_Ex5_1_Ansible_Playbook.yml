@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  vars: 
+    - access_vlan: 300
+    - secret: 55hu
+    - snmp_community: 55hu  
+    - destination_dir: /home/jwitzgall/KirkByersAnsibleCourse/config_file_dest
+  tasks: 
+    - name: Generate Configuration File
+      template: src=router2.j2 dest={{destination_dir}}/{{item.hostname}}.txt
+      with_items:
+        - {hostname: r1, ip_addr: 10.1.1.1, default_gateway: 10.1.1.49}
+        - {hostname: r2, ip_addr: 10.1.2.1, default_gateway: 10.1.2.49}

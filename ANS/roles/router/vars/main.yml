@@ -1,0 +1,4 @@
+---
+test_routers:
+  - {hostname: r1, ip_addr: 10.1.1.1, default_gateway: 10.1.1.49}
+  - {hostname: r2, ip_addr: 10.1.2.1, default_gateway: 10.1.2.49}

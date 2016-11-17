@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  vars: 
+    hostname: r2
+  tasks: 
+    - name: Generate Configuration File
+      template: src=router.j2 dest=./r1.txt
